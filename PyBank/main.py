@@ -1,9 +1,9 @@
 import csv
 
 # Provide the path to the input budget_data.csv file
-csv_file_path = "C:/Users/ipsit/Documents/GitHub/Python-Challenge/PyBank/Resources/budget_data.csv"
+input_csv_file_path = "C:/Users/ipsit/Documents/GitHub/Python-Challenge/PyBank/Resources/budget_data.csv"
 
-def budget_data(input_csv_file_path, output_file_path):
+def budget_data(input_csv_file_path, output_txt_file_path):
     # Initialize variables for total number of months, profit and loss, greatest increase and decrease dates and amounts
     total_months = 0
     final_profit_loss = 0
@@ -69,12 +69,12 @@ def budget_data(input_csv_file_path, output_file_path):
     print(results)
 
     # Write the results to a text file
-    with open(output_file_path, "w") as output_file:
+    with open(output_txt_file_path, "w") as output_file:
         output_file.write(results)
 
 
 # Provide the path for the output text file
-output_file_path = "C:/Users/ipsit/Documents/GitHub/Python-Challenge/PyBank/Analysis/budget_data_results.txt"
+output_txt_file_path = "C:/Users/ipsit/Documents/GitHub/Python-Challenge/PyBank/Analysis/budget_data_results.txt"
 
 # Call the function with the file paths
-budget_data(csv_file_path, output_file_path)
+budget_data(input_csv_file_path, output_txt_file_path)
