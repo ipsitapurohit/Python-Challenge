@@ -3,8 +3,8 @@ import csv
 # Provide the path to election_data.csv file
 input_csv_file_path = "C:/Users/ipsit/Documents/GitHub/Python-Challenge/PyPoll/Resources/election_data.csv"
 
-def analyze_election_data(input_csv_file_path, output_file_path):
-    # Initialize variables
+def analyze_election_data(input_csv_file_path, output_txt_file_path):
+    # Initialize variables for votes of each of the candidates
     total_votes = 0
     charles_votes = 0
     diana_votes = 0
@@ -15,13 +15,13 @@ def analyze_election_data(input_csv_file_path, output_file_path):
     csv_reader = csv.reader(csv_file)
     next(csv_reader)  # Skip header row
 
-    # Loop through rows in the CSV file
+    # Loop through each row in the CSV file
     for row in csv_reader:
         # Process each row
         total_votes += 1
         candidate = row[2]
 
-        # Count votes for each candidate
+        # Count votes for each candidate separately based on their names
         if candidate == "Charles Casper Stockham":
             charles_votes += 1
         elif candidate == "Diana DeGette":
@@ -34,7 +34,7 @@ def analyze_election_data(input_csv_file_path, output_file_path):
     percentage_2 = (diana_votes / total_votes) * 100
     percentage_3 = (raymon_votes / total_votes) * 100
 
-    # Determine the winner
+    # Determine the winner by comparing between the number of votes each candidate won
     if charles_votes > diana_votes and charles_votes > raymon_votes:
         winner = "Charles Casper Stockham"
     elif diana_votes > charles_votes and diana_votes > raymon_votes:
@@ -42,7 +42,7 @@ def analyze_election_data(input_csv_file_path, output_file_path):
     else:
         winner = "Raymon Anthony Doane"
 
-    # Prepare the results string
+    # Prepare the result string as shown in solution
     results = (
         "Election Results\n"
         "-------------------------\n"
@@ -56,16 +56,16 @@ def analyze_election_data(input_csv_file_path, output_file_path):
         "-------------------------\n"
     )
 
-    # Print the results to the terminal
+    # Print the results on the console
     print(results)
 
     # Write the results to a text file
-    with open(output_file_path, "w") as output_file:
+    with open(output_txt_file_path, "w") as output_file:
         output_file.write(results)
 
 
 # Provide the path for the output text file
-output_file_path = "C:/Users/ipsit/Documents/GitHub/Python-Challenge/PyPoll/Analysis/election_results.txt"
+output_txt_file_path = "C:/Users/ipsit/Documents/GitHub/Python-Challenge/PyPoll/Analysis/election_results.txt"
 
-# Call the function with the file paths
-analyze_election_data(input_csv_file_path, output_file_path)
+# Call the function with the input and output file paths
+analyze_election_data(input_csv_file_path, output_txt_file_path)
