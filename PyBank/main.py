@@ -65,7 +65,7 @@ def budget_data(input_csv_file_path, output_file_path):
         f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease_amount})"
     )
 
-    # Print the results
+    # Print the results on the console
     print(results)
 
     # Write the results to a text file
